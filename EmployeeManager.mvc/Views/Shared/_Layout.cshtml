@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Employee Manager</title>
+    <link href="~/Styles/site.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <h1>Employee Manager</h1>
+    <hr />
+    <div>
+        @RenderBody()
+    </div>
+    <hr />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h2>You are signed in as @User.Identity.Name</h2>
+        <form asp-controller="Security" asp-action="SignOut" method="post">
+            <button type="submit">Sign Out</button>
+        </form>
+    }
+</body>
+</html>
